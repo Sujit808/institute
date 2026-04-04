@@ -1,0 +1,119 @@
+MEERAHR SCHOOL ERP - 10 MINUTE UAT SIGN-OFF CHECKLIST
+Date: ____________________
+Environment: ____________________
+Tester Name: ____________________
+Build/Release Tag: ____________________
+
+=================================================================
+0) PRE-CHECK (2 MIN)
+=================================================================
+[ ] App opens on login page
+[ ] No 500 error on login page
+[ ] DB and storage are accessible
+[ ] Browser hard refresh done (Ctrl+F5)
+
+Quick commands (optional verification):
+- php artisan route:list --name=settings.access-matrix
+- php artisan route:list --name=password.hash-check
+- php artisan route:list --name=attendance.import
+- php artisan test tests\Unit\PermissionRulesTest.php
+
+Result:
+[ ] PASS   [ ] FAIL
+Notes: __________________________________________________________
+
+=================================================================
+1) SUPER ADMIN CHECK (2 MIN)
+=================================================================
+Login as Super Admin
+[ ] Dashboard opens
+[ ] Access Matrix page opens
+[ ] Password Reset Utility visible in profile dropdown
+[ ] Password Reset Utility page opens
+[ ] Can verify password hash using selected user
+[ ] Can reset password and new password is shown in result box
+[ ] License Settings page opens
+
+Result:
+[ ] PASS   [ ] FAIL
+Notes: __________________________________________________________
+
+=================================================================
+2) ADMIN CHECK (1.5 MIN)
+=================================================================
+Login as Admin
+[ ] Dashboard opens
+[ ] Password Reset Utility visible in profile dropdown
+[ ] Password Reset Utility page opens
+[ ] Can reset another user password
+[ ] Access Matrix is NOT accessible (should be forbidden)
+
+Result:
+[ ] PASS   [ ] FAIL
+Notes: __________________________________________________________
+
+=================================================================
+3) HR CHECK (2 MIN)
+=================================================================
+Login as HR
+[ ] Student menu shows Attendance
+[ ] Attendance page opens
+[ ] Upload attendance Excel with valid template
+[ ] Success OR warning toast appears after upload
+[ ] If failed rows exist, Download Failed Rows button appears
+[ ] Failed rows CSV downloads correctly
+[ ] Password Reset Utility is NOT accessible
+
+Result:
+[ ] PASS   [ ] FAIL
+Notes: __________________________________________________________
+
+=================================================================
+4) TEACHER CHECK (1 MIN)
+=================================================================
+Login as Teacher
+[ ] Study Materials visible and opens
+[ ] Exam Papers visible and opens
+[ ] iCards visible and opens
+[ ] Attendance visible and opens
+[ ] Password Reset Utility is NOT accessible
+
+Result:
+[ ] PASS   [ ] FAIL
+Notes: __________________________________________________________
+
+=================================================================
+5) STUDENT CHECK (1.5 MIN)
+=================================================================
+Login as Student
+[ ] Student dashboard opens
+[ ] Student change password page works
+[ ] Student forgot password reset flow works (roll + guardian phone)
+[ ] Student cannot access admin utilities
+
+Result:
+[ ] PASS   [ ] FAIL
+Notes: __________________________________________________________
+
+=================================================================
+6) FINAL SIGN-OFF
+=================================================================
+Critical defects found:
+[ ] No
+[ ] Yes (list below)
+
+Defect list:
+1) ______________________________________________________________
+2) ______________________________________________________________
+3) ______________________________________________________________
+
+Deployment decision:
+[ ] APPROVED FOR GO-LIVE
+[ ] HOLD - FIX REQUIRED
+
+Approved by: ____________________
+Date/Time: ____________________
+
+=================================================================
+END OF CHECKLIST
+=================================================================

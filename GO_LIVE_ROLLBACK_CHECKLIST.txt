@@ -1,0 +1,83 @@
+MEERAHR SCHOOL ERP - GO-LIVE ROLLBACK CHECKLIST
+
+Release Tag: ____________________
+Deployment Date/Time: ____________________
+Rollback Owner: ____________________
+
+=================================================================
+1) ROLLBACK TRIGGER CONDITIONS
+=================================================================
+[ ] Login failure for all users
+[ ] Data corruption risk
+[ ] Critical module down (attendance/fees/results/password)
+[ ] Unrecoverable 500 errors
+[ ] Security issue detected
+
+Trigger confirmed by: ____________________
+Time: ____________________
+
+=================================================================
+2) PRE-ROLLBACK SAFETY
+=================================================================
+[ ] Current DB backup taken
+[ ] Current code snapshot archived
+[ ] Current storage snapshot archived
+[ ] Stakeholders notified
+
+=================================================================
+3) ROLLBACK ACTIONS
+=================================================================
+[ ] Put app in maintenance mode
+Command: php artisan down
+
+[ ] Checkout previous stable release
+Command: git checkout <stable-tag-or-commit>
+
+[ ] Install stable dependencies
+Command: composer install --no-dev --optimize-autoloader
+Command: npm ci
+Command: npm run build
+
+[ ] Restore DB (if needed)
+Command/Method: ____________________
+
+[ ] Run migrations rollback/restore plan (if applicable)
+Command/Method: ____________________
+
+[ ] Rebuild caches
+Command: php artisan config:clear
+Command: php artisan cache:clear
+Command: php artisan route:clear
+Command: php artisan view:clear
+Command: php artisan config:cache
+Command: php artisan route:cache
+Command: php artisan view:cache
+
+[ ] Bring app up
+Command: php artisan up
+
+=================================================================
+4) POST-ROLLBACK VALIDATION
+=================================================================
+[ ] Super admin login works
+[ ] Admin login works
+[ ] HR attendance page works
+[ ] Teacher core modules work
+[ ] Student dashboard works
+[ ] Password reset utility works for authorized roles
+[ ] No critical errors in logs
+
+=================================================================
+5) COMMUNICATION
+=================================================================
+[ ] Incident update shared
+[ ] Root cause owner assigned
+[ ] Hotfix timeline communicated
+
+Final Status:
+[ ] Rollback Successful
+[ ] Rollback Partial
+[ ] Further action required
+
+Signed By: ____________________
+Date/Time: ____________________

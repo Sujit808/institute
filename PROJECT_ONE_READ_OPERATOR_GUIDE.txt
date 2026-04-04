@@ -1,0 +1,440 @@
+PROJECT ONE-READ OPERATOR GUIDE
+SchoolSphere / MEERAHR
+Version: V1 (Hindi + English)
+Purpose: Ek hi guide read karke koi bhi user poora project daily operate kar sake.
+
+============================================================
+0) FAST START (5 MINUTE OVERVIEW)
+============================================================
+EN:
+If you are new, follow this exact order:
+1. Login
+2. School Setup
+3. Classes/Sections/Staff/Subjects
+4. Students
+5. Fee Structures -> Fees -> Payments -> Receipts
+6. Attendance
+7. Notifications/Holidays/Leaves/Calendar
+8. Exams -> Results
+9. Certificates
+10. Reports + Daily SOP
+
+HI:
+Agar aap new hain to isi order me kaam karein:
+1. Login
+2. School Setup
+3. Classes/Sections/Staff/Subjects
+4. Students
+5. Fee Structures -> Fees -> Payments -> Receipts
+6. Attendance
+7. Notifications/Holidays/Leaves/Calendar
+8. Exams -> Results
+9. Certificates
+10. Reports + Daily SOP
+
+============================================================
+1) LOGIN + USER ROLES
+============================================================
+Default Super Admin (seeded):
+- Email: superadmin@school.com
+- Password: Admin@123
+
+EN:
+First login ke baad password change karein.
+
+HI:
+Pehle login ke turant baad password change karein.
+
+Role Responsibilities:
+- Super Admin: Full control, branch and permissions
+- Admin: Daily operations
+- Teacher: Academic + attendance scope
+- Accountant: Fees/payments/receipts
+- Student: Portal only
+
+============================================================
+2) SCREEN MAP (KAHAN KYA HAI)
+============================================================
+Main navigation groups:
+- Academic: Classes, Sections, Subjects, Timetable, Study Materials
+- Student: Students, Attendance, Results, Fees, Certificates
+- HR/Operations: Staff, Leaves, Holidays, Notifications, Calendar
+- Exam: Exams, Exam Builder, Exam Papers, Exam Questions
+- Compliance: Audit Logs
+
+Header tools:
+- Branch switcher (if multi-branch)
+- Theme switch
+- User menu (profile/logout)
+
+============================================================
+3) FIRST DAY SETUP (MANDATORY FOUNDATION)
+============================================================
+Step A: Organization setup
+EN:
+Fill school name, logo, address, contacts. If multi-branch, create branches.
+
+HI:
+School name, logo, address, contacts fill karein. Multi-branch ho to branches banayein.
+
+Step B: Users and permissions
+EN:
+Create users (admin/teacher/accounts), assign role and module access.
+
+HI:
+Users (admin/teacher/accounts) banakar role aur module permissions assign karein.
+
+Step C: Academic masters
+EN:
+Create in this order:
+1. Classes
+2. Sections
+3. Staff/Teachers
+4. Subjects (map teacher + class)
+5. Timetable
+
+HI:
+Isi order me banayein:
+1. Classes
+2. Sections
+3. Staff/Teachers
+4. Subjects (teacher + class map)
+5. Timetable
+
+============================================================
+4) STUDENT ADMISSION FLOW (ADMISSION TO ACTIVE)
+============================================================
+EN Step-by-step:
+1. Open Students module
+2. Click Add
+3. Fill mandatory fields:
+   - Admission No
+   - Roll No
+   - Name
+   - Class
+   - Section
+   - Guardian name and phone
+4. Optional fields/documents add karein
+5. Save
+6. Search karke verify student record exists
+7. Student login user verify/create
+
+HI Step-by-step:
+1. Students module open karein
+2. Add par click karein
+3. Mandatory fields bharein:
+   - Admission No
+   - Roll No
+   - Name
+   - Class
+   - Section
+   - Guardian name aur phone
+4. Optional fields/documents add karein
+5. Save karein
+6. Search karke verify karein
+7. Student login user verify/create karein
+
+Admission Quality Checklist:
+- Class and section sahi mapped
+- Duplicate admission no nahi
+- Guardian contact valid
+- Status active
+
+============================================================
+5) FEES FULL FLOW (MOST IMPORTANT)
+============================================================
+Part 1: Fee Structures
+EN:
+1. Open Fee Structures
+2. Add class-wise fee heads:
+   - Fee Head
+   - Label
+   - Amount
+   - Due Month
+   - Academic Year
+   - Status active
+3. Save
+
+HI:
+1. Fee Structures open karein
+2. Class-wise fee heads add karein:
+   - Fee Head
+   - Label
+   - Amount
+   - Due Month
+   - Academic Year
+   - Status active
+3. Save karein
+
+Part 2: Auto-generate fees
+EN:
+1. Choose class + academic year
+2. Click Auto Generate
+3. System creates fee records for active students
+4. Created/skipped summary check karein
+
+HI:
+1. Class + academic year select karein
+2. Auto Generate click karein
+3. Active students ke fees records banenge
+4. Created/skipped summary verify karein
+
+Part 3: Fee collection (installment)
+EN:
+1. Open Fees module
+2. Student fee row open/edit
+3. Enter installment_amount and installment_date
+4. Save
+5. Check Paid and Due update
+
+HI:
+1. Fees module open karein
+2. Student fee row open/edit karein
+3. installment_amount aur installment_date fill karein
+4. Save karein
+5. Paid aur Due update verify karein
+
+Part 4: Receipts
+EN:
+Download two types:
+1. Full Fee Receipt (fee-level)
+2. Payment Receipt (transaction-level)
+
+HI:
+Do tarah ke receipts download karein:
+1. Full Fee Receipt (fee-level)
+2. Payment Receipt (transaction-level)
+
+Fee Control Rules:
+- Paid > Total nahi hona chahiye
+- Due negative nahi hona chahiye
+- Receipt amount payment history se match hona chahiye
+
+============================================================
+6) ATTENDANCE FLOW
+============================================================
+EN:
+1. Attendance module open karein
+2. Date select karein
+3. Class/section select karein
+4. Mark present/absent/late
+5. Save and verify count
+
+HI:
+1. Attendance module open karein
+2. Date select karein
+3. Class/section select karein
+4. Present/absent/late mark karein
+5. Save karke count verify karein
+
+If biometric enabled:
+- Device setup
+- Enrollment mapping
+- Sync status monitoring
+
+============================================================
+7) COMMUNICATION FLOW
+============================================================
+Notifications:
+- Circulars/alerts publish karein
+
+Holidays:
+- Holiday ranges add karein
+
+Leaves:
+- Requests review
+- Approve or reject with reason
+
+Calendar:
+- Events, meetings, exams, reminders
+
+Day-wise customization (if enabled):
+- holiday/weekoff/event/exam/fest/sports entries
+
+============================================================
+8) EXAM FLOW (CREATE TO RESULT)
+============================================================
+EN:
+Step 1: Exams module -> Create exam
+Step 2: Exam Builder -> set:
+- Duration
+- Negative marking
+- Active sets (A/B/C...)
+Step 3: Add questions manually or import CSV
+Step 4: Optional paper upload
+Step 5: Student attempts assigned set
+Step 6: Submit exam
+Step 7: Results publish/verify
+
+HI:
+Step 1: Exams module -> exam create karein
+Step 2: Exam Builder me set karein:
+- Duration
+- Negative marking
+- Active sets (A/B/C...)
+Step 3: Questions manually ya CSV se add/import karein
+Step 4: Optional paper upload
+Step 5: Student assigned set attempt kare
+Step 6: Exam submit kare
+Step 7: Results publish/verify karein
+
+Exam Quality Checks:
+- Correct option and marks set
+- Exam date/time valid
+- Set-wise questions available
+- Result PDF generation tested
+
+============================================================
+9) CERTIFICATE FLOW
+============================================================
+EN:
+1. Certificates page open karein
+2. Upload stamp and signature
+3. Select student
+4. Generate:
+   - TC
+   - Bonafide
+   - Character
+5. Download PDF and verify stamp/signature present
+
+HI:
+1. Certificates page open karein
+2. Stamp aur signature upload karein
+3. Student select karein
+4. Generate karein:
+   - TC
+   - Bonafide
+   - Character
+5. PDF download karke stamp/signature verify karein
+
+============================================================
+10) STUDENT PORTAL FLOW
+============================================================
+Student should be able to use this path:
+Dashboard -> Fees -> Exams -> Results -> Attendance -> My Calendar -> Books -> Profile
+
+Verification points:
+- Fees visible with paid/due
+- Payment receipts downloadable
+- Assigned exam visible
+- Result and grade visible
+- Attendance history visible
+- Calendar and study materials accessible
+
+============================================================
+11) REPORTS + EXPORT FLOW
+============================================================
+EN:
+Use module-level Export PDF / Export Excel buttons for reporting.
+
+HI:
+Reports ke liye module-level Export PDF / Export Excel buttons use karein.
+
+Monthly reports recommended:
+- Fee collection summary
+- Due list
+- Attendance summary
+- Result summary
+- Leave/holiday report
+
+============================================================
+12) DAILY OPERATIONS SOP (ADMIN TEAM)
+============================================================
+Morning:
+1. Attendance mark verification
+2. New admissions or profile updates
+3. Fee collection entries
+
+Afternoon:
+4. Notifications publish
+5. Leaves action
+6. Calendar updates
+
+Evening:
+7. Pending dues follow-up
+8. Export quick reports
+9. Backup check
+
+============================================================
+13) WEEKLY SOP
+============================================================
+1. Data quality audit (duplicate, missing fields)
+2. Fees due follow-up list
+3. Staff and timetable consistency check
+4. Exam readiness review
+5. Audit logs review
+
+============================================================
+14) MONTH-END SOP
+============================================================
+1. Fee reconciliation (total paid vs receipts)
+2. Full due report freeze
+3. Exam schedule lock and publish
+4. Results and certificates cycle
+5. Data backup (DB + storage)
+6. Security review
+
+============================================================
+15) ERROR HANDLING (COMMON ISSUES)
+============================================================
+Issue: Page error / Blade issue
+Action:
+- php artisan view:clear
+- php artisan view:cache
+
+Issue: CSS/JS old version
+Action:
+- npm run build
+- Hard refresh browser
+
+Issue: Images/files not visible
+Action:
+- php artisan storage:link
+- Check permissions
+
+Issue: Login fails
+Action:
+- Verify user active status
+- Verify password reset/change
+- Check role permissions
+
+Issue: Receipt mismatch
+Action:
+- Open fee payment history
+- Compare sum(payment) vs receipt
+- Re-download updated receipt
+
+============================================================
+16) CONTROL MATRIX (WHO APPROVES WHAT)
+============================================================
+- New user creation: Super Admin
+- Role/permission changes: Super Admin
+- Fee structure changes: Admin + Accounts (approved)
+- Exam publish: Admin/Academic head
+- Certificate issue: Admin
+- Final monthly report sign-off: Super Admin/Admin
+
+============================================================
+17) GO-LIVE FINAL CHECKLIST
+============================================================
+Technical:
+- APP_ENV=production
+- APP_DEBUG=false
+- secure DB credentials
+- mail configured
+- storage linked
+- backup scheduler active
+
+Operational:
+- roles and permissions verified
+- all masters complete
+- test student full cycle done
+- receipts, results, certificates tested
+- support contact assigned
+
+============================================================
+18) ONE-LINE GOLDEN FLOW
+============================================================
+Setup -> Masters -> Students -> Fees -> Attendance -> Communication -> Exams -> Results -> Certificates -> Reports -> SOP -> Go-Live
+
+END OF PROJECT ONE-READ OPERATOR GUIDE

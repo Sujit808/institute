@@ -1,0 +1,638 @@
+MEERAHR / SchoolSphere - USER GUIDE V2
+Step-by-Step (Hindi + English)
+
+============================================================
+SECTION 0: PURPOSE / UDESHYA
+============================================================
+English:
+This guide explains the complete school workflow from fresh setup to daily operations, exam process, certificates, student portal, and reports.
+
+Hindi:
+Ye guide fresh setup se lekar daily operation, exam process, certificate, student portal aur reports tak poora workflow samjhati hai.
+
+
+============================================================
+SECTION 1: SYSTEM SETUP (FROM ZERO)
+============================================================
+Step 1: Install prerequisites
+English:
+Install PHP 8.2+, Composer, Node.js + npm, MySQL, and Git.
+
+Hindi:
+PHP 8.2+, Composer, Node.js + npm, MySQL aur Git install karein.
+
+Step 2: Project open karein
+English:
+Open project folder in terminal: C:\xampp\htdocs\meerahr
+
+Hindi:
+Terminal me project folder open karein: C:\xampp\htdocs\meerahr
+
+Step 3: Environment file banayein
+English:
+Copy .env.example to .env and update database values.
+
+Hindi:
+.env.example ko copy karke .env banayein aur database values update karein.
+
+Suggested DB values:
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=School_DB_all
+DB_USERNAME=root
+DB_PASSWORD=
+
+Step 4: App key generate karein
+English:
+Run: php artisan key:generate
+
+Hindi:
+Command chalayein: php artisan key:generate
+
+Step 5: Dependencies install karein
+English:
+Run: composer install
+Run: npm install
+
+Hindi:
+Command chalayein: composer install
+Command chalayein: npm install
+
+Step 6: Database migrate + seed
+English:
+Run: php artisan migrate --seed
+
+Hindi:
+Command chalayein: php artisan migrate --seed
+
+Step 7: Storage link banayein
+English:
+Run: php artisan storage:link
+
+Hindi:
+Command chalayein: php artisan storage:link
+
+Step 8: Frontend build karein
+English:
+Run: npm run build
+
+Hindi:
+Command chalayein: npm run build
+
+Step 9: Application start karein
+English:
+Run: php artisan serve
+Open: http://127.0.0.1:8000
+
+Hindi:
+Command chalayein: php artisan serve
+Open karein: http://127.0.0.1:8000
+
+
+============================================================
+SECTION 2: FIRST LOGIN + SECURITY
+============================================================
+Step 10: Default super admin login
+English:
+Email: superadmin@school.com
+Password: Admin@123
+
+Hindi:
+Default login:
+Email: superadmin@school.com
+Password: Admin@123
+
+Step 11: Password change (mandatory)
+English:
+First login after seed may force password change. Set strong password immediately.
+
+Hindi:
+Seed ke baad first login par password change mandatory ho sakta hai. Turant strong password set karein.
+
+Step 12: Production safety checklist
+English:
+Set APP_ENV=production and APP_DEBUG=false in production.
+Configure secure DB and mail credentials.
+
+Hindi:
+Production me APP_ENV=production aur APP_DEBUG=false set karein.
+Secure DB aur mail credentials configure karein.
+
+
+============================================================
+SECTION 3: SCHOOL / ORGANIZATION INITIAL SETUP
+============================================================
+Step 13: Organization profile setup
+English:
+Go to settings/admin area and fill school name, address, contact, logo, and branding.
+
+Hindi:
+Settings/admin area me school name, address, contact, logo aur branding update karein.
+
+Step 14: Branch setup (if multi-branch)
+English:
+Create branch records and map users to branches.
+Use header branch switcher to select active branch.
+
+Hindi:
+Agar multi-branch hai to branch records banayein aur users map karein.
+Header branch switcher se active branch select karein.
+
+Step 15: User and roles setup
+English:
+Create users for admin/teacher/staff and assign module permissions.
+
+Hindi:
+Admin/teacher/staff users banayein aur unko module permissions assign karein.
+
+
+============================================================
+SECTION 4: MASTER DATA CREATION (BASIC ACADEMIC FLOW)
+============================================================
+Step 16: Classes create karein
+English:
+Go to Classes module, add class name/code/capacity/status.
+
+Hindi:
+Classes module me class name/code/capacity/status add karein.
+
+Step 17: Sections create karein
+English:
+Go to Sections, map section with class, room and class teacher.
+
+Hindi:
+Sections module me class ke saath section map karein, room aur class teacher assign karein.
+
+Step 18: Staff create karein
+English:
+Go to Staff module and add teacher/staff details.
+
+Hindi:
+Staff module me teacher/staff ka complete profile add karein.
+
+Step 19: Subjects create karein
+English:
+Go to Subjects module, map subject to class and teacher.
+
+Hindi:
+Subjects module me subject ko class aur teacher ke saath map karein.
+
+Step 20: Timetable setup
+English:
+Go to Timetable module and add period-wise schedule.
+
+Hindi:
+Timetable module me period-wise schedule banayein.
+
+
+============================================================
+SECTION 5: STUDENT ADMISSION WORKFLOW
+============================================================
+Step 21: Add Student
+English:
+Go to Students module and create student record:
+- Admission No
+- Roll No
+- Name
+- Class/Section
+- Guardian details
+- Contact and optional documents
+
+Hindi:
+Students module me student add karein:
+- Admission No
+- Roll No
+- Name
+- Class/Section
+- Guardian details
+- Contact aur optional documents
+
+Step 22: Student user account
+English:
+System can create student login user linked with student profile.
+
+Hindi:
+System student profile ke saath student login user create kar sakta hai.
+
+Step 23: iCard generation (if enabled)
+English:
+Use iCard module/route to generate student/staff iCard PDF.
+
+Hindi:
+iCard module/route se student/staff iCard PDF generate karein.
+
+
+============================================================
+SECTION 6: FEES WORKFLOW (0 TO COMPLETE)
+============================================================
+Step 24: Fee Structures create karein
+English:
+Open Fee Structures module and define:
+- Class
+- Fee head/label
+- Amount
+- Due month
+- Academic year
+- Status
+
+Hindi:
+Fee Structures module me define karein:
+- Class
+- Fee head/label
+- Amount
+- Due month
+- Academic year
+- Status
+
+Step 25: Auto-generate fees for class
+English:
+Use Auto Generate in fee-structures for selected class + academic year.
+This creates fee records for active students.
+
+Hindi:
+Fee-structures me Auto Generate use karein (class + academic year).
+Isse active students ke liye fee records create honge.
+
+Step 26: Manual fee create/edit
+English:
+Go to Fees module and create/edit fee entries if required.
+
+Hindi:
+Fees module me manual fee create/edit karein agar required ho.
+
+Step 27: Installment payment entry
+English:
+In fee modal, use installment_amount and installment_date to add payment in parts.
+
+Hindi:
+Fee modal me installment_amount aur installment_date se part-payment entry karein.
+
+Step 28: Fee status verification
+English:
+Check Total/Paid/Due cards and row-level progress bars.
+
+Hindi:
+Total/Paid/Due cards aur row-level progress bar se status verify karein.
+
+Step 29: Receipt download
+English:
+Download:
+- Full fee receipt (student fee summary)
+- Individual payment receipt
+
+Hindi:
+Download karein:
+- Full fee receipt (student fee summary)
+- Individual payment receipt
+
+
+============================================================
+SECTION 7: ATTENDANCE WORKFLOW
+============================================================
+Step 30: Manual attendance
+English:
+Go to Attendance module and mark present/absent/late with date.
+
+Hindi:
+Attendance module me date wise present/absent/late mark karein.
+
+Step 31: Multi-channel attendance (if configured)
+English:
+Attendance supports manual, biometric machine, mobile face/fingerprint methods.
+
+Hindi:
+Attendance me manual, biometric machine, mobile face/fingerprint methods supported hain.
+
+Step 32: Biometric devices setup
+English:
+Add biometric device records and enrollment mappings.
+
+Hindi:
+Biometric devices aur enrollment mapping configure karein.
+
+
+============================================================
+SECTION 8: COMMUNICATION + CALENDAR + HOLIDAY
+============================================================
+Step 33: Notifications
+English:
+Use Notifications module for circulars/announcements.
+
+Hindi:
+Notifications module se circulars/announcements publish karein.
+
+Step 34: Holidays
+English:
+Use Holidays module to define holiday ranges and types.
+
+Hindi:
+Holidays module me holiday range aur type set karein.
+
+Step 35: Leaves
+English:
+Use Leaves module for leave request, approve/reject workflow.
+
+Hindi:
+Leaves module me leave request aur approve/reject workflow handle karein.
+
+Step 36: Calendar events
+English:
+Use Calendar module for events, exams, meetings, reminders.
+
+Hindi:
+Calendar module me events, exams, meetings, reminders add karein.
+
+Step 37: Day-wise customization (if enabled)
+English:
+Create day-wise entries like holiday/weekoff/event/exam/fest/sports.
+
+Hindi:
+Day-wise customization se holiday/weekoff/event/exam/fest/sports entries banayein.
+
+
+============================================================
+SECTION 9: EXAM WORKFLOW (START TO END)
+============================================================
+Step 38: Create exam
+English:
+Go to Exams module and create exam with class/date/settings.
+
+Hindi:
+Exams module me class/date/settings ke saath exam create karein.
+
+Step 39: Build question sets (Exam Builder)
+English:
+Open Exam Builder and set:
+- Duration
+- Negative marking
+- Active sets (A/B/C...)
+Then add questions with options and correct answers.
+
+Hindi:
+Exam Builder me set karein:
+- Duration
+- Negative marking
+- Active sets (A/B/C...)
+Phir questions add karein (options + correct answer).
+
+Step 40: Import questions (optional)
+English:
+Use CSV/paste import in builder for bulk question entry.
+
+Hindi:
+Builder me CSV/paste import use karke bulk questions add karein.
+
+Step 41: Exam papers
+English:
+Upload exam papers/attachments if required and assign to exam.
+
+Hindi:
+Zarurat ho to exam papers/attachments upload karke exam se map karein.
+
+Step 42: Student exam attempt
+English:
+Student logs in, opens assigned exam set, starts exam, autosave runs, submits exam.
+
+Hindi:
+Student login karke assigned set open karta hai, exam start karta hai, autosave hota hai, phir submit karta hai.
+
+Step 43: Anti-cheat monitor
+English:
+Tab-switch monitor/lock rules apply if configured.
+
+Hindi:
+Agar configured hai to tab-switch monitor/lock rules apply hote hain.
+
+Step 44: Result generation
+English:
+After submission, results appear in Results module and student portal.
+
+Hindi:
+Submission ke baad result Results module aur student portal me show hota hai.
+
+Step 45: Result PDF
+English:
+Student/admin can download result PDF where enabled.
+
+Hindi:
+Enabled hone par student/admin result PDF download kar sakte hain.
+
+
+============================================================
+SECTION 10: CERTIFICATE WORKFLOW
+============================================================
+Step 46: Certificate assets upload
+English:
+Go to Certificates page and upload school stamp + signature.
+
+Hindi:
+Certificates page par school stamp + signature upload karein.
+
+Step 47: Generate certificates
+English:
+Generate student certificates:
+- Transfer Certificate (TC)
+- Bonafide Certificate
+- Character Certificate
+
+Hindi:
+Student certificates generate karein:
+- Transfer Certificate (TC)
+- Bonafide Certificate
+- Character Certificate
+
+Step 48: Download PDF
+English:
+Download PDF with school branding, stamp, and signature.
+
+Hindi:
+School branding, stamp aur signature ke saath PDF download karein.
+
+
+============================================================
+SECTION 11: STUDY MATERIAL + DOCUMENTS
+============================================================
+Step 49: Study materials upload
+English:
+Go to Study Materials module and upload files class/subject wise.
+
+Hindi:
+Study Materials module me class/subject wise files upload karein.
+
+Step 50: Student downloads
+English:
+Students can view and download available study files from portal.
+
+Hindi:
+Students portal se available study files dekh aur download kar sakte hain.
+
+
+============================================================
+SECTION 12: REPORTS, EXPORTS, AUDIT
+============================================================
+Step 51: Module exports
+English:
+Use PDF/Excel export buttons in module pages for reports.
+
+Hindi:
+Module pages par PDF/Excel export button se reports nikalein.
+
+Step 52: Audit logs
+English:
+Use Audit Logs module for action tracking (read-only).
+
+Hindi:
+Audit Logs module me system actions ka tracking dekhein (read-only).
+
+Step 53: Financial reconciliation
+English:
+Cross-check fee cards, payment history, and receipt totals regularly.
+
+Hindi:
+Fee cards, payment history aur receipt totals ko regular reconcile karein.
+
+
+============================================================
+SECTION 13: STUDENT PORTAL COMPLETE FLOW
+============================================================
+Step 54: Student login
+English:
+Student logs in with student credentials.
+
+Hindi:
+Student apne credentials se login karta hai.
+
+Step 55: Dashboard
+English:
+Student sees fees, attendance, results, exam, and notices summary.
+
+Hindi:
+Student dashboard par fees, attendance, result, exam, notices summary dekhta hai.
+
+Step 56: Fees page
+English:
+Student sees fee status and downloads payment receipts.
+
+Hindi:
+Student fee status dekhta hai aur payment receipts download karta hai.
+
+Step 57: Exams page
+English:
+Student starts assigned exam and submits.
+
+Hindi:
+Student assigned exam start karke submit karta hai.
+
+Step 58: Results page
+English:
+Student checks marks/grade and downloads result PDF.
+
+Hindi:
+Student marks/grade check karta hai aur result PDF download karta hai.
+
+Step 59: Attendance page
+English:
+Student views date-wise attendance and summary.
+
+Hindi:
+Student date-wise attendance aur summary dekhta hai.
+
+Step 60: My Calendar
+English:
+Student views month-wise academic calendar/events/holidays.
+
+Hindi:
+Student month-wise academic calendar/events/holidays dekhta hai.
+
+Step 61: Books page
+English:
+Student accesses study materials by subject/class.
+
+Hindi:
+Student subject/class ke hisab se study materials access karta hai.
+
+
+============================================================
+SECTION 14: DAILY OPERATIONS CHECKLIST
+============================================================
+English:
+1. Mark attendance
+2. Post announcements
+3. Record fee payments and issue receipts
+4. Update leaves and calendar
+5. Upload study materials
+6. Review pending approvals
+
+Hindi:
+1. Attendance mark karein
+2. Announcements post karein
+3. Fee payments record karein aur receipts issue karein
+4. Leaves aur calendar update karein
+5. Study materials upload karein
+6. Pending approvals review karein
+
+
+============================================================
+SECTION 15: MONTH-END / TERM-END CHECKLIST
+============================================================
+English:
+1. Export fees report (PDF/Excel)
+2. Verify due list and recovery follow-up
+3. Freeze exam setup before exam date
+4. Publish results and certificates
+5. Backup DB and storage files
+6. Review audit logs
+
+Hindi:
+1. Fees report export karein (PDF/Excel)
+2. Due list verify karein aur recovery follow-up karein
+3. Exam date se pehle exam setup freeze karein
+4. Results aur certificates publish karein
+5. DB aur storage files ka backup lein
+6. Audit logs review karein
+
+
+============================================================
+SECTION 16: TROUBLESHOOTING QUICK HELP
+============================================================
+Issue: Page blank or Blade error
+English: Run php artisan view:clear and php artisan view:cache
+Hindi: Command chalayein php artisan view:clear aur php artisan view:cache
+
+Issue: CSS/JS not updating
+English: Run npm run build and hard refresh browser
+Hindi: npm run build karein aur browser hard refresh karein
+
+Issue: Images/files not showing
+English: Run php artisan storage:link and check file permissions
+Hindi: php artisan storage:link chalayein aur file permissions check karein
+
+Issue: Login not working
+English: Verify credentials and check users table active flag
+Hindi: Credentials verify karein aur users table me active flag check karein
+
+
+============================================================
+SECTION 17: FINAL GO-LIVE CHECK
+============================================================
+English:
+- APP_ENV=production
+- APP_DEBUG=false
+- Storage linked
+- Mail configured
+- DB backup job configured
+- Super admin strong password set
+- Team training completed
+
+Hindi:
+- APP_ENV=production
+- APP_DEBUG=false
+- Storage linked
+- Mail configured
+- DB backup job configured
+- Super admin strong password set
+- Team training completed
+
+
+END OF USER GUIDE V2

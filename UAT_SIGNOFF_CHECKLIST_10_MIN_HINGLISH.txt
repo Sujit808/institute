@@ -1,0 +1,122 @@
+MEERAHR SCHOOL ERP - 10 MINUTE UAT SIGN-OFF CHECKLIST (HINGLISH)
+Date: ____________________
+Environment: ____________________
+Tester Name: ____________________
+Build/Release Tag: ____________________
+
+=================================================================
+0) PRE-CHECK (2 MIN)
+=================================================================
+[ ] App login page par open ho rahi hai
+[ ] Login page par koi 500 error nahi aa raha
+[ ] DB aur storage accessible hai
+[ ] Browser hard refresh ho gaya (Ctrl+F5)
+
+Quick commands (optional):
+- php artisan route:list --name=settings.access-matrix
+- php artisan route:list --name=password.hash-check
+- php artisan route:list --name=attendance.import
+- php artisan test tests\Unit\PermissionRulesTest.php
+
+Result:
+[ ] PASS   [ ] FAIL
+Notes: __________________________________________________________
+
+=================================================================
+1) SUPER ADMIN CHECK (2 MIN)
+=================================================================
+Super Admin se login karo
+[ ] Dashboard open ho raha hai
+[ ] Access Matrix page open ho raha hai
+[ ] Profile dropdown me Password Reset Utility dikh rahi hai
+[ ] Password Reset Utility page open ho raha hai
+[ ] Selected user ke saath password verify ho raha hai
+[ ] Password reset ke baad naya password result box me show ho raha hai
+[ ] License Settings page open ho raha hai
+
+Result:
+[ ] PASS   [ ] FAIL
+Notes: __________________________________________________________
+
+=================================================================
+2) ADMIN CHECK (1.5 MIN)
+=================================================================
+Admin se login karo
+[ ] Dashboard open ho raha hai
+[ ] Profile dropdown me Password Reset Utility dikh rahi hai
+[ ] Password Reset Utility page open ho raha hai
+[ ] Admin kisi user ka password reset kar pa raha hai
+[ ] Access Matrix open nahi hona chahiye (forbidden expected)
+
+Result:
+[ ] PASS   [ ] FAIL
+Notes: __________________________________________________________
+
+=================================================================
+3) HR CHECK (2 MIN)
+=================================================================
+HR se login karo
+[ ] Student menu me Attendance dikh raha hai
+[ ] Attendance page open ho raha hai
+[ ] Attendance Excel upload ho raha hai
+[ ] Upload ke baad toast aa raha hai:
+    - success (clean import)
+    - warning (partial failed rows)
+    - error (validation issue)
+[ ] Failed rows hone par Download Failed Rows button aa raha hai
+[ ] Failed rows CSV download ho raha hai
+[ ] Password Reset Utility access denied hona chahiye
+
+Result:
+[ ] PASS   [ ] FAIL
+Notes: __________________________________________________________
+
+=================================================================
+4) TEACHER CHECK (1 MIN)
+=================================================================
+Teacher se login karo
+[ ] Study Materials dikh raha hai aur open ho raha hai
+[ ] Exam Papers dikh raha hai aur open ho raha hai
+[ ] iCards dikh raha hai aur open ho raha hai
+[ ] Attendance dikh raha hai aur open ho raha hai
+[ ] Password Reset Utility access denied hona chahiye
+
+Result:
+[ ] PASS   [ ] FAIL
+Notes: __________________________________________________________
+
+=================================================================
+5) STUDENT CHECK (1.5 MIN)
+=================================================================
+Student se login karo
+[ ] Student dashboard open ho raha hai
+[ ] Student ka own password change ho raha hai
+[ ] Student forgot password reset flow (roll + guardian phone) work kar raha hai
+[ ] Student admin utilities access nahi kar pa raha
+
+Result:
+[ ] PASS   [ ] FAIL
+Notes: __________________________________________________________
+
+=================================================================
+6) FINAL SIGN-OFF
+=================================================================
+Critical defects mile?
+[ ] No
+[ ] Yes (neeche mention karo)
+
+Defect list:
+1) ______________________________________________________________
+2) ______________________________________________________________
+3) ______________________________________________________________
+
+Deployment decision:
+[ ] APPROVED FOR GO-LIVE
+[ ] HOLD - FIX REQUIRED
+
+Approved by: ____________________
+Date/Time: ____________________
+
+=================================================================
+END OF CHECKLIST
+=================================================================

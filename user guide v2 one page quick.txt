@@ -1,0 +1,199 @@
+SCHOOLSPHERE / MEERAHR
+ONE PAGE QUICK GUIDE (Hindi + English)
+
+==================================================
+A) FIRST TIME SETUP
+==================================================
+EN:
+1. Configure .env DB settings
+2. Run:
+   composer install
+   npm install
+   php artisan key:generate
+   php artisan migrate --seed
+   php artisan storage:link
+   npm run build
+   php artisan serve
+3. Open: http://127.0.0.1:8000
+
+HI:
+1. .env me DB settings configure karein
+2. Commands chalayein (upar wali)
+3. App open karein: http://127.0.0.1:8000
+
+==================================================
+B) LOGIN
+==================================================
+EN:
+Default Super Admin:
+Email: superadmin@school.com
+Password: Admin@123
+Change password immediately.
+
+HI:
+Default Super Admin:
+Email: superadmin@school.com
+Password: Admin@123
+Password turant change karein.
+
+==================================================
+C) START SCHOOL OPERATIONS (ORDER)
+==================================================
+EN:
+1. Setup school profile + logo
+2. Create classes
+3. Create sections
+4. Add staff/teachers
+5. Add subjects
+6. Add students
+7. Setup timetable
+
+HI:
+1. School profile + logo setup karein
+2. Classes banayein
+3. Sections banayein
+4. Staff/teachers add karein
+5. Subjects add karein
+6. Students add karein
+7. Timetable set karein
+
+==================================================
+D) FEES (MOST IMPORTANT DAILY)
+==================================================
+EN:
+1. Create fee structure
+2. Auto-generate fees for class/year
+3. Record installment payment
+4. Check Paid/Due status
+5. Download receipt PDF
+
+HI:
+1. Fee structure banayein
+2. Class/year ke liye fees auto-generate karein
+3. Installment payment entry karein
+4. Paid/Due status check karein
+5. Receipt PDF download karein
+
+==================================================
+E) ATTENDANCE + COMMUNICATION
+==================================================
+EN:
+1. Mark attendance daily
+2. Publish notifications
+3. Update holidays/leaves/calendar
+
+HI:
+1. Daily attendance mark karein
+2. Notifications publish karein
+3. Holidays/leaves/calendar update karein
+
+==================================================
+F) EXAM TO RESULT FLOW
+==================================================
+EN:
+1. Create exam
+2. Open Exam Builder
+3. Add settings + question sets
+4. Add/import questions
+5. Student attempts exam
+6. Generate/view result
+7. Download result PDF
+
+HI:
+1. Exam create karein
+2. Exam Builder open karein
+3. Settings + question sets add karein
+4. Questions add/import karein
+5. Student exam attempt kare
+6. Result generate/view karein
+7. Result PDF download karein
+
+==================================================
+G) CERTIFICATES
+==================================================
+EN:
+1. Upload stamp + signature
+2. Generate TC / Bonafide / Character
+3. Download PDF
+
+HI:
+1. Stamp + signature upload karein
+2. TC / Bonafide / Character generate karein
+3. PDF download karein
+
+==================================================
+H) STUDENT PORTAL QUICK USE
+==================================================
+EN:
+Student can check:
+- Dashboard
+- Fees + receipts
+- Exams
+- Results
+- Attendance
+- My Calendar
+- Books/materials
+
+HI:
+Student dekh sakta hai:
+- Dashboard
+- Fees + receipts
+- Exams
+- Results
+- Attendance
+- My Calendar
+- Books/materials
+
+==================================================
+I) DAILY ADMIN CHECKLIST
+==================================================
+EN:
+- Attendance done
+- Fee entries done
+- Receipts issued
+- Notices posted
+- Leave approvals checked
+
+HI:
+- Attendance complete
+- Fee entries complete
+- Receipts issue
+- Notices post
+- Leave approvals check
+
+==================================================
+J) TROUBLESHOOT COMMANDS
+==================================================
+EN:
+Blade error:
+php artisan view:clear
+php artisan view:cache
+
+Asset issue:
+npm run build
+
+File path issue:
+php artisan storage:link
+
+HI:
+Blade error:
+php artisan view:clear
+php artisan view:cache
+
+CSS/JS issue:
+npm run build
+
+File issue:
+php artisan storage:link
+
+==================================================
+K) GO-LIVE MINIMUM
+==================================================
+EN + HI:
+- APP_ENV=production
+- APP_DEBUG=false
+- Secure DB credentials
+- Mail configured
+- Backup enabled
+
+END - ONE PAGE QUICK GUIDE

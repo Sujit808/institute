@@ -1,0 +1,257 @@
+MEERAHR SCHOOL ERP - MASTER OPERATIONS PACK (HINGLISH)
+Generated On: ____________________
+Prepared By: ____________________
+
+=================================================================
+INDEX
+=================================================================
+1. UAT ONE PAGE PRINTABLE (A4)
+2. DEFECT LOG TEMPLATE
+3. GO-LIVE ROLLBACK CHECKLIST
+4. DAILY OPERATIONS CHECKLIST
+5. PASSWORD RESET SOP (OPERATOR)
+
+=================================================================
+1) UAT ONE PAGE PRINTABLE (A4)
+=================================================================
+Date: ____________________   Build: ____________________   Env: ____________________
+Tester: ____________________   Approved By: ____________________
+
+A) CORE APP HEALTH
+[ ] Login page open ho rahi hai
+[ ] Dashboard open ho raha hai
+[ ] Koi 500/server error nahi
+
+B) ROLE ACCESS CHECK
+SUPER ADMIN
+[ ] Access Matrix open
+[ ] Password Reset Utility open
+
+ADMIN
+[ ] Password Reset Utility open
+[ ] Access Matrix blocked (expected)
+
+HR
+[ ] Attendance menu visible
+[ ] Attendance page open
+
+TEACHER
+[ ] Study Materials visible
+[ ] Exam Papers visible
+[ ] iCards visible
+
+STUDENT
+[ ] Student dashboard open
+[ ] Own password change work
+
+C) ATTENDANCE IMPORT
+[ ] Valid file upload successful
+[ ] Success/Warning/Error toast sahi show
+[ ] Failed rows button aaye (jab needed ho)
+[ ] Failed rows CSV download ho
+
+D) PASSWORD FLOWS
+[ ] Self password change work (staff/admin)
+[ ] Student forgot reset flow work
+[ ] Admin/Super Admin other users reset kar pa rahe
+
+E) FINAL DECISION
+Critical defects: [ ] NO   [ ] YES
+Go-Live Decision: [ ] APPROVED  [ ] HOLD
+Signature (Tester): ____________________
+Signature (Approver): ____________________
+
+=================================================================
+2) DEFECT LOG TEMPLATE
+=================================================================
+Project/Release: ____________________
+Date: ____________________
+Reporter: ____________________
+
+Defect ID: ____________________
+Title: ____________________
+Module: ____________________
+Environment: ____________________
+Role/User: ____________________
+Severity: [ ] Critical  [ ] High  [ ] Medium  [ ] Low
+Priority: [ ] P1 [ ] P2 [ ] P3 [ ] P4
+
+Pre-conditions:
+_______________________________________________________________
+
+Steps to Reproduce:
+1) ____________________
+2) ____________________
+3) ____________________
+
+Expected Result:
+_______________________________________________________________
+
+Actual Result:
+_______________________________________________________________
+
+Error Message / Toast / Logs:
+_______________________________________________________________
+
+Attachment (screenshot/video/log path):
+_______________________________________________________________
+
+Status: [ ] Open [ ] In Progress [ ] Fixed [ ] Retest [ ] Closed [ ] Reopen
+Owner: ____________________
+ETA: ____________________
+Retest By: ____________________
+Retest Date: ____________________
+Closure Notes:
+_______________________________________________________________
+
+=================================================================
+3) GO-LIVE ROLLBACK CHECKLIST
+=================================================================
+Release Tag: ____________________
+Deployment Date/Time: ____________________
+Rollback Owner: ____________________
+
+A) ROLLBACK TRIGGER CONDITIONS
+[ ] Sab users ka login fail
+[ ] Data corruption risk
+[ ] Critical module down
+[ ] Unrecoverable 500 errors
+[ ] Security issue
+
+B) PRE-ROLLBACK SAFETY
+[ ] DB backup liya
+[ ] Current code snapshot archive
+[ ] Current storage snapshot archive
+[ ] Stakeholders informed
+
+C) ROLLBACK ACTIONS
+[ ] php artisan down
+[ ] git checkout <stable-tag-or-commit>
+[ ] composer install --no-dev --optimize-autoloader
+[ ] npm ci
+[ ] npm run build
+[ ] DB restore (if needed)
+[ ] php artisan config:clear
+[ ] php artisan cache:clear
+[ ] php artisan route:clear
+[ ] php artisan view:clear
+[ ] php artisan config:cache
+[ ] php artisan route:cache
+[ ] php artisan view:cache
+[ ] php artisan up
+
+D) POST-ROLLBACK VALIDATION
+[ ] Super admin login OK
+[ ] Admin login OK
+[ ] HR attendance OK
+[ ] Teacher modules OK
+[ ] Student dashboard OK
+[ ] Password reset utility authorized roles ke liye OK
+[ ] Logs me critical error nahi
+
+E) COMMUNICATION
+[ ] Incident update share
+[ ] Root cause owner assign
+[ ] Hotfix timeline communicate
+
+Final Status: [ ] Successful [ ] Partial [ ] More action required
+Signed By: ____________________
+Date/Time: ____________________
+
+=================================================================
+4) DAILY OPERATIONS CHECKLIST
+=================================================================
+Date: ____________________   Shift: ____________________   Operator: ____________________
+
+A) SYSTEM START CHECK
+[ ] App URL open
+[ ] Login work
+[ ] Maintenance mode off
+[ ] Queue worker running (if configured)
+[ ] Scheduler running (if configured)
+
+B) ADMIN DAILY TASKS
+[ ] New user issues review
+[ ] Password reset requests process
+[ ] Access/permission requests verify
+[ ] Critical modules quick check
+
+C) HR DAILY TASKS
+[ ] Attendance import done (if planned)
+[ ] Import toasts check (success/warning/error)
+[ ] Failed rows download & correction
+[ ] Leave queue check
+
+D) TEACHER SUPPORT TASKS
+[ ] Study material requests check
+[ ] Exam papers/assessment check
+[ ] Attendance anomalies flag
+
+E) STUDENT SUPPORT TASKS
+[ ] Student login issues resolve
+[ ] Student reset verification
+[ ] Fees/receipt support
+
+F) END OF DAY
+[ ] High priority incidents log
+[ ] Defect log update
+[ ] Next-day pending list ready
+[ ] Backup status verify
+
+Daily Summary:
+_______________________________________________________________
+Supervisor Sign: ____________________
+
+=================================================================
+5) PASSWORD RESET SOP (OPERATOR)
+=================================================================
+Purpose:
+Secure way me password reset karna with verification + audit trail.
+
+Who can do this:
+- Super Admin
+- Admin
+
+A) BEFORE RESET
+[ ] User identity verify
+[ ] Reset reason capture
+[ ] Operator name/time note
+If student request:
+[ ] Roll no verify
+[ ] Guardian phone verify
+
+B) RESET STEPS
+1) Admin/Super Admin login
+2) Password Reset Utility open
+3) Target user select (recommended)
+4) Verify ya Reset action choose
+5) Custom password do ya blank chhodo (default generate)
+6) Generated password secure channel se share
+7) Confirm user login + force password change
+
+C) SECURE SHARING RULES
+[ ] Public group me password share mat karo
+[ ] Private secure channel use karo
+[ ] User ko immediate password change bolo
+[ ] Plain password permanent store mat karo
+
+D) AFTER RESET
+[ ] Reset confirmation capture
+[ ] User + role + timestamp record
+[ ] Issue ho to defect log me add
+
+Operator Log Entry:
+User: ____________________
+Role: ____________________
+Reset Time: ____________________
+Operator: ____________________
+Reason: ____________________
+
+E) COMMON ISSUES
+- Multiple users matched -> exact email/employee id/roll no lo
+- Access denied -> operator role Admin/Super Admin verify karo
+- Password not working -> reset repeat karo, spacing check karo
+
+=================================================================
+END OF MASTER OPERATIONS PACK (HINGLISH)
+=================================================================

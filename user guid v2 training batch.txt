@@ -1,0 +1,337 @@
+SCHOOLSPHERE / MEERAHR
+USER GUIDE V2 - TRAINING BATCH FORMAT
+Hindi + English | Day-wise Implementation
+
+==================================================
+TRAINING OVERVIEW
+==================================================
+EN:
+This version is designed for training sessions. Complete product usage is split into practical day-wise batches.
+
+HI:
+Ye version training sessions ke liye banaya gaya hai. Poore product usage ko day-wise practical batches me divide kiya gaya hai.
+
+Suggested Team:
+- 1 Super Admin
+- 1 Admin
+- 1 Accounts User
+- 1 Teacher
+- 1 Data Entry User
+
+==================================================
+DAY 0 (PRE-TRAINING TECH SETUP)
+==================================================
+Goal:
+Environment ready + login working.
+
+EN Steps:
+1. Install PHP 8.2+, Composer, Node.js, npm, MySQL.
+2. Open project folder: C:\xampp\htdocs\meerahr
+3. Create .env from .env.example
+4. Configure database:
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=School_DB_all
+   DB_USERNAME=root
+   DB_PASSWORD=
+5. Run:
+   composer install
+   npm install
+   php artisan key:generate
+   php artisan migrate --seed
+   php artisan storage:link
+   npm run build
+   php artisan serve
+6. Open app: http://127.0.0.1:8000
+
+HI Steps:
+1. PHP 8.2+, Composer, Node.js, npm, MySQL install karein.
+2. Project folder open karein: C:\xampp\htdocs\meerahr
+3. .env.example se .env banayein.
+4. Database values set karein (upar wali).
+5. Commands chalayein:
+   composer install
+   npm install
+   php artisan key:generate
+   php artisan migrate --seed
+   php artisan storage:link
+   npm run build
+   php artisan serve
+6. App open karein: http://127.0.0.1:8000
+
+Validation Check:
+- Login page open ho
+- Super admin login work kare
+
+==================================================
+DAY 1 (ADMIN FOUNDATION BATCH)
+==================================================
+Goal:
+School setup + master data complete karna.
+
+Session 1: Login and security
+EN:
+- Login with superadmin@school.com / Admin@123
+- Change password immediately
+
+HI:
+- superadmin@school.com / Admin@123 se login karein
+- Password turant change karein
+
+Session 2: Organization setup
+EN:
+- Add school profile: name, logo, address, phone, email
+- Configure branch details (if multi-branch)
+- Map users to branches
+
+HI:
+- School profile add karein: name, logo, address, phone, email
+- Multi-branch ho to branch details add karein
+- Users ko branch assign karein
+
+Session 3: Roles and users
+EN:
+- Create admin/teacher/accounts users
+- Assign module permissions
+
+HI:
+- admin/teacher/accounts users banayein
+- Module permissions assign karein
+
+Session 4: Academic master data
+EN:
+- Create Classes
+- Create Sections and map class
+- Create Staff/Teachers
+- Create Subjects and map class + teacher
+- Set Timetable
+
+HI:
+- Classes banayein
+- Sections banakar class se map karein
+- Staff/Teachers add karein
+- Subjects banakar class + teacher map karein
+- Timetable set karein
+
+Day 1 Practical Task:
+EN:
+Create 2 classes, 4 sections, 6 subjects, 5 staff users.
+
+HI:
+2 classes, 4 sections, 6 subjects, 5 staff users create karein.
+
+Day 1 Output Checklist:
+- Class/Section/Subject list ready
+- Users and permissions verified
+- Header branch switch working (if enabled)
+
+==================================================
+DAY 2 (STUDENT + FEES + ATTENDANCE BATCH)
+==================================================
+Goal:
+Admission to fee collection workflow complete karna.
+
+Session 1: Student admission
+EN:
+- Add student records with required details:
+  admission no, roll no, name, class, section, guardian details
+- Verify student list and filters
+
+HI:
+- Student records add karein:
+  admission no, roll no, name, class, section, guardian details
+- Student list aur filters verify karein
+
+Session 2: Fee structure
+EN:
+- Open Fee Structures module
+- Add fee heads and amounts class-wise
+- Set due month + academic year
+- Auto-generate fee records for active students
+
+HI:
+- Fee Structures module open karein
+- Class-wise fee heads aur amount add karein
+- Due month + academic year set karein
+- Active students ke liye auto-generate karein
+
+Session 3: Fee payment and receipts
+EN:
+- Open Fees module
+- Add installment via installment_amount and installment_date
+- Verify paid, due, progress rows
+- Download full fee receipt + individual payment receipt
+
+HI:
+- Fees module open karein
+- installment_amount aur installment_date se payment karein
+- Paid, Due, progress row verify karein
+- Full fee receipt aur individual payment receipt download karein
+
+Session 4: Attendance setup
+EN:
+- Mark attendance manually date-wise
+- If biometric enabled, configure device and enrollment
+
+HI:
+- Date-wise manual attendance mark karein
+- Biometric enabled ho to device/enrollment configure karein
+
+Day 2 Practical Task:
+EN:
+Create 20 students, generate monthly fee, record at least 2 installments per sample student.
+
+HI:
+20 students add karein, monthly fee generate karein, sample students par kam se kam 2 installments record karein.
+
+Day 2 Output Checklist:
+- Student admission complete
+- Fees generated and payments recorded
+- Receipts download tested
+- Attendance entries visible
+
+==================================================
+DAY 3 (EXAM + RESULT + CERTIFICATE + PORTAL BATCH)
+==================================================
+Goal:
+Academic cycle close karna with student portal validation.
+
+Session 1: Notifications and calendar
+EN:
+- Post school announcement
+- Add holiday/event in calendar
+- Test leave approve/reject flow
+
+HI:
+- School announcement publish karein
+- Calendar me holiday/event add karein
+- Leave approve/reject flow test karein
+
+Session 2: Exam creation
+EN:
+- Create exam in Exams module
+- Open Exam Builder
+- Configure settings (duration, negative marking, sets)
+- Add questions manually or via import
+- Upload exam paper if required
+
+HI:
+- Exams module me exam create karein
+- Exam Builder open karein
+- Settings configure karein (duration, negative marking, sets)
+- Questions manually ya import se add karein
+- Zarurat ho to exam paper upload karein
+
+Session 3: Student exam and result
+EN:
+- Login as student
+- Start assigned exam
+- Submit exam
+- Verify result in student results page
+- Download result PDF
+
+HI:
+- Student login kare
+- Assigned exam start kare
+- Exam submit kare
+- Student results page me result verify kare
+- Result PDF download kare
+
+Session 4: Certificates
+EN:
+- Upload stamp + signature on Certificates page
+- Generate TC / Bonafide / Character certificate
+- Download PDF and verify assets
+
+HI:
+- Certificates page par stamp + signature upload karein
+- TC / Bonafide / Character certificate generate karein
+- PDF download karke assets verify karein
+
+Day 3 Practical Task:
+EN:
+Complete one full student life-cycle from admission to fee to exam to certificate.
+
+HI:
+Ek student ka full cycle complete karein: admission se fee, exam aur certificate tak.
+
+Day 3 Output Checklist:
+- Exam and result workflow validated
+- Certificate generation validated
+- Student portal pages validated
+
+==================================================
+POST-TRAINING SOP (DAILY + MONTH-END)
+==================================================
+Daily SOP (EN):
+1. Mark attendance
+2. Record fee payments
+3. Issue receipts
+4. Post notices
+5. Review pending leaves
+6. Update calendar
+
+Daily SOP (HI):
+1. Attendance mark karein
+2. Fee payments record karein
+3. Receipts issue karein
+4. Notices post karein
+5. Pending leaves review karein
+6. Calendar update karein
+
+Month-End SOP (EN):
+1. Export fee reports PDF/Excel
+2. Verify due balances
+3. Finalize exam setup
+4. Publish results/certificates
+5. Backup DB and storage
+6. Review audit logs
+
+Month-End SOP (HI):
+1. Fee reports PDF/Excel export karein
+2. Due balances verify karein
+3. Exam setup finalize karein
+4. Results/certificates publish karein
+5. DB aur storage backup karein
+6. Audit logs review karein
+
+==================================================
+TRAINING EVALUATION FORMAT
+==================================================
+EN:
+Pass criteria:
+- User can create class/section/subject without help
+- User can add student and generate fee
+- User can record installment and print receipt
+- User can create exam and publish result
+- User can generate certificates
+
+HI:
+Pass criteria:
+- User class/section/subject khud bana le
+- User student add karke fee generate kar le
+- User installment record karke receipt print kar le
+- User exam create karke result publish kar le
+- User certificate generate kar le
+
+==================================================
+GO-LIVE MINI CHECKLIST
+==================================================
+EN:
+- APP_ENV=production
+- APP_DEBUG=false
+- Mail configured
+- Storage linked
+- Backup strategy active
+- Strong passwords enabled
+
+HI:
+- APP_ENV=production
+- APP_DEBUG=false
+- Mail configured
+- Storage linked
+- Backup strategy active
+- Strong passwords enabled
+
+END - USER GUIDE V2 TRAINING BATCH

@@ -1,0 +1,334 @@
+SCHOOLSHERE / MEERAHR
+USER GUIDE V2 (PRINTABLE)
+Hindi + English | Step-by-Step from 0 to End
+
+==================================================
+1) START FROM ZERO (INSTALLATION)
+==================================================
+EN:
+1. Install PHP 8.2+, Composer, Node.js, npm, MySQL.
+2. Open project folder: C:\xampp\htdocs\meerahr
+3. Copy .env.example to .env
+4. Configure DB:
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=School_DB_all
+   DB_USERNAME=root
+   DB_PASSWORD=
+5. Run commands:
+   composer install
+   npm install
+   php artisan key:generate
+   php artisan migrate --seed
+   php artisan storage:link
+   npm run build
+   php artisan serve
+6. Open: http://127.0.0.1:8000
+
+HI:
+1. PHP 8.2+, Composer, Node.js, npm, MySQL install karein.
+2. Project folder open karein: C:\xampp\htdocs\meerahr
+3. .env.example ko copy karke .env banayein.
+4. DB values set karein (upar wali).
+5. Ye commands chalayein:
+   composer install
+   npm install
+   php artisan key:generate
+   php artisan migrate --seed
+   php artisan storage:link
+   npm run build
+   php artisan serve
+6. Browser me kholo: http://127.0.0.1:8000
+
+==================================================
+2) FIRST LOGIN + SECURITY
+==================================================
+EN:
+1. Login with seeded super admin:
+   Email: superadmin@school.com
+   Password: Admin@123
+2. Change password immediately.
+3. For production: APP_ENV=production, APP_DEBUG=false
+
+HI:
+1. Seeded super admin se login karein:
+   Email: superadmin@school.com
+   Password: Admin@123
+2. Password turant change karein.
+3. Production me APP_ENV=production, APP_DEBUG=false rakhein.
+
+==================================================
+3) SCHOOL SETUP (ORGANIZATION + BRANCH)
+==================================================
+EN:
+1. Open settings/admin area.
+2. Add school name, logo, address, phone, email.
+3. If multi-branch: create branches.
+4. Map users to branches.
+5. Select active branch from header switcher.
+
+HI:
+1. Settings/admin section open karein.
+2. School name, logo, address, phone, email add karein.
+3. Multi-branch ho to branches banayein.
+4. Users ko branch map karein.
+5. Header switcher se active branch select karein.
+
+==================================================
+4) MASTER DATA CREATE (ACADEMIC BASE)
+==================================================
+EN:
+1. Create Classes.
+2. Create Sections and map with class.
+3. Create Staff/Teachers.
+4. Create Subjects and map class + teacher.
+5. Create Timetable (period-wise).
+
+HI:
+1. Classes banayein.
+2. Sections banakar class se map karein.
+3. Staff/Teachers add karein.
+4. Subjects banakar class + teacher map karein.
+5. Timetable period-wise set karein.
+
+==================================================
+5) STUDENT ADMISSION (COMPLETE)
+==================================================
+EN:
+1. Go to Students module.
+2. Add:
+   Admission No, Roll No, Name, Class, Section,
+   Guardian Name/Phone, contact details, documents.
+3. Save student.
+4. Verify student appears in list/table.
+5. Create or verify linked student login user.
+
+HI:
+1. Students module me jaayein.
+2. Add karein:
+   Admission No, Roll No, Name, Class, Section,
+   Guardian Name/Phone, contact details, documents.
+3. Student save karein.
+4. List/table me verify karein.
+5. Student login user create/verify karein.
+
+==================================================
+6) FEES + PAYMENT + RECEIPT (START TO END)
+==================================================
+EN:
+1. Open Fee Structures.
+2. Add fee structure:
+   Class, Fee Head, Label, Amount, Due Month, Academic Year, Status.
+3. Use Auto Generate (class + year) to create fee records for students.
+4. Open Fees module and check generated records.
+5. For payment, use installment fields:
+   installment_amount + installment_date
+6. Save payment installment.
+7. Verify Total/Paid/Due cards and row progress.
+8. Download receipts:
+   a) Full Fee Receipt
+   b) Individual Payment Receipt
+
+HI:
+1. Fee Structures open karein.
+2. Fee structure add karein:
+   Class, Fee Head, Label, Amount, Due Month, Academic Year, Status.
+3. Auto Generate use karein (class + year) fee records banane ke liye.
+4. Fees module me records verify karein.
+5. Payment ke liye installment fields use karein:
+   installment_amount + installment_date
+6. Installment save karein.
+7. Total/Paid/Due cards aur progress verify karein.
+8. Receipts download karein:
+   a) Full Fee Receipt
+   b) Individual Payment Receipt
+
+==================================================
+7) ATTENDANCE WORKFLOW
+==================================================
+EN:
+1. Open Attendance module.
+2. Mark present/absent/late date-wise.
+3. If biometric enabled, configure devices and enrollments.
+4. Verify attendance summaries.
+
+HI:
+1. Attendance module open karein.
+2. Date-wise present/absent/late mark karein.
+3. Biometric enabled ho to devices + enrollments configure karein.
+4. Attendance summary verify karein.
+
+==================================================
+8) COMMUNICATION + CALENDAR + HOLIDAY + LEAVE
+==================================================
+EN:
+1. Notifications: publish circulars/notices.
+2. Holidays: add holiday ranges.
+3. Leaves: approve/reject requests.
+4. Calendar: add events, meetings, exams.
+5. Day-wise customization (if enabled): holiday/weekoff/event/exam/fest.
+
+HI:
+1. Notifications: circulars/notices publish karein.
+2. Holidays: holiday dates/range add karein.
+3. Leaves: approve/reject workflow chalayein.
+4. Calendar: events, meetings, exams add karein.
+5. Day-wise customization (enabled ho to): holiday/weekoff/event/exam/fest.
+
+==================================================
+9) EXAM WORKFLOW (0 TO RESULT)
+==================================================
+EN:
+1. Create exam in Exams module.
+2. Open Exam Builder.
+3. Set exam settings:
+   Duration, Negative Marking, Active Sets (A/B/C...).
+4. Add questions (A/B/C/D options + correct answer + marks + status).
+5. Optional: bulk import questions via CSV/paste.
+6. Optional: upload exam papers.
+7. Student starts assigned set exam.
+8. Autosave and submit.
+9. View results in Results module and student portal.
+10. Download result PDF where enabled.
+
+HI:
+1. Exams module me exam create karein.
+2. Exam Builder open karein.
+3. Settings set karein:
+   Duration, Negative Marking, Active Sets (A/B/C...).
+4. Questions add karein (A/B/C/D options + correct answer + marks + status).
+5. Optional: CSV/paste se bulk import karein.
+6. Optional: exam paper upload karein.
+7. Student assigned set exam start kare.
+8. Autosave ke baad submit kare.
+9. Result module aur student portal me result dekhein.
+10. Enabled ho to result PDF download karein.
+
+==================================================
+10) CERTIFICATE WORKFLOW
+==================================================
+EN:
+1. Open Certificates page.
+2. Upload Stamp + Signature.
+3. Select student.
+4. Generate certificate type:
+   TC / Bonafide / Character
+5. Download PDF.
+
+HI:
+1. Certificates page open karein.
+2. Stamp + Signature upload karein.
+3. Student select karein.
+4. Certificate type generate karein:
+   TC / Bonafide / Character
+5. PDF download karein.
+
+==================================================
+11) STUDENT PORTAL COMPLETE USAGE
+==================================================
+EN:
+Student can access:
+1. Dashboard summary
+2. Fees + payment receipts
+3. Exams + start/submit
+4. Results + PDF
+5. Attendance summary
+6. My Calendar
+7. Books/Study Materials download
+8. Profile details
+
+HI:
+Student portal me ye sab use hota hai:
+1. Dashboard summary
+2. Fees + payment receipts
+3. Exams + start/submit
+4. Results + PDF
+5. Attendance summary
+6. My Calendar
+7. Books/Study Materials download
+8. Profile details
+
+==================================================
+12) DAILY CHECKLIST (ADMIN)
+==================================================
+EN:
+1. Mark attendance
+2. Record fee payments
+3. Issue receipts
+4. Post notices
+5. Review pending leaves
+6. Update events/calendar
+
+HI:
+1. Attendance mark karein
+2. Fee payments record karein
+3. Receipts issue karein
+4. Notices post karein
+5. Pending leaves review karein
+6. Events/calendar update karein
+
+==================================================
+13) MONTH-END / TERM-END CHECKLIST
+==================================================
+EN:
+1. Export fee reports (PDF/Excel)
+2. Verify dues and follow-up
+3. Lock/finalize exam setup before exam day
+4. Publish results and certificates
+5. Backup DB + storage files
+6. Review audit logs
+
+HI:
+1. Fee reports export karein (PDF/Excel)
+2. Dues verify karke follow-up karein
+3. Exam day se pehle exam setup finalize karein
+4. Results aur certificates publish karein
+5. DB + storage files backup karein
+6. Audit logs review karein
+
+==================================================
+14) TROUBLESHOOTING QUICK COMMANDS
+==================================================
+EN:
+If Blade error:
+  php artisan view:clear
+  php artisan view:cache
+
+If asset issue:
+  npm run build
+
+If file/image issue:
+  php artisan storage:link
+
+HI:
+Blade error aaye to:
+  php artisan view:clear
+  php artisan view:cache
+
+CSS/JS update na ho to:
+  npm run build
+
+Image/file show na ho to:
+  php artisan storage:link
+
+==================================================
+15) FINAL GO-LIVE CHECK
+==================================================
+EN:
+- APP_ENV=production
+- APP_DEBUG=false
+- Mail configured
+- Storage linked
+- Secure passwords set
+- Team training done
+
+HI:
+- APP_ENV=production
+- APP_DEBUG=false
+- Mail configured
+- Storage linked
+- Strong passwords set
+- Team training complete
+
+END OF USER GUIDE V2 PRINTABLE

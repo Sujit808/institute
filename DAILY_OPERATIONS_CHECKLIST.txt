@@ -1,0 +1,55 @@
+MEERAHR SCHOOL ERP - DAILY OPERATIONS CHECKLIST
+Date: ____________________   Shift: ____________________   Operator: ____________________
+
+=================================================================
+A) SYSTEM START CHECK
+=================================================================
+[ ] Application URL opens
+[ ] Login works
+[ ] No maintenance mode active
+[ ] Queue worker running (if configured)
+[ ] Scheduler running (if configured)
+
+=================================================================
+B) ADMIN DAILY TASKS
+=================================================================
+[ ] New user issues reviewed
+[ ] Password reset requests processed
+[ ] Access/permission change requests verified
+[ ] Critical modules quick open test (attendance, fees, results)
+
+=================================================================
+C) HR DAILY TASKS
+=================================================================
+[ ] Attendance import completed (if planned)
+[ ] Import toasts reviewed (success/warning/error)
+[ ] Failed rows downloaded and corrected
+[ ] Staff/student leave queue checked
+
+=================================================================
+D) TEACHER SUPPORT TASKS
+=================================================================
+[ ] Study materials upload requests checked
+[ ] Exam papers/assessment entries checked
+[ ] Class-wise attendance anomalies flagged
+
+=================================================================
+E) STUDENT SUPPORT TASKS
+=================================================================
+[ ] Student login issues resolved
+[ ] Student password reset verification done
+[ ] Fees/receipt query support done
+
+=================================================================
+F) END OF DAY CLOSING
+=================================================================
+[ ] High priority incidents logged
+[ ] Defect log updated
+[ ] Next-day pending list prepared
+[ ] Data backup job status verified
+
+Daily Summary:
+_______________________________________________________________
+_______________________________________________________________
+
+Supervisor Sign: ____________________

@@ -1,0 +1,274 @@
+PROJECT PROPER FLOW
+SchoolSphere / MEERAHR
+End-to-End Operational Flow (Hindi + English)
+
+==================================================
+1. PROJECT START FLOW (TECHNICAL BOOT)
+==================================================
+EN:
+1. Setup environment (.env, DB, app key).
+2. Install dependencies (composer + npm).
+3. Run migrations and seeders.
+4. Link storage and build assets.
+5. Start server and test login.
+
+HI:
+1. Environment setup karein (.env, DB, app key).
+2. Dependencies install karein (composer + npm).
+3. Migration aur seeder run karein.
+4. Storage link aur assets build karein.
+5. Server start karke login test karein.
+
+==================================================
+2. GOVERNANCE FLOW (WHO DOES WHAT)
+==================================================
+EN:
+1. Super Admin: full setup + permissions + branch control.
+2. Admin: day-to-day operations.
+3. Teacher: class, attendance, academic tasks.
+4. Accountant: fees, payments, receipts.
+5. Student: portal usage (fees, exams, results, attendance).
+
+HI:
+1. Super Admin: full setup + permissions + branch control.
+2. Admin: daily operations.
+3. Teacher: class, attendance, academic work.
+4. Accountant: fees, payments, receipts.
+5. Student: portal par fees/exam/results/attendance dekhta hai.
+
+==================================================
+3. CORE MASTER SETUP FLOW
+==================================================
+EN:
+Order should be:
+1. Organization Profile
+2. Branches (if multi-branch)
+3. Users + Roles + Permissions
+4. Classes
+5. Sections
+6. Staff/Teachers
+7. Subjects
+8. Timetable
+
+HI:
+Sahi order:
+1. Organization Profile
+2. Branches (agar multi-branch)
+3. Users + Roles + Permissions
+4. Classes
+5. Sections
+6. Staff/Teachers
+7. Subjects
+8. Timetable
+
+==================================================
+4. STUDENT LIFECYCLE FLOW
+==================================================
+EN:
+1. Student admission entry.
+2. Class/Section mapping.
+3. Guardian/contact details add.
+4. Student login account link.
+5. Optional: iCard generation.
+
+HI:
+1. Student admission entry.
+2. Class/Section mapping.
+3. Guardian/contact details add.
+4. Student login account link.
+5. Optional: iCard generate karein.
+
+==================================================
+5. FEES FLOW (MOST CRITICAL)
+==================================================
+EN:
+1. Create fee structures class-wise.
+2. Auto-generate fees for class + academic year.
+3. Review fee list (total, paid, due).
+4. Collect payment installment-wise.
+5. Save payment with date and mode.
+6. Recalculate paid/due automatically.
+7. Download receipts:
+   - Full fee receipt
+   - Payment receipt per transaction
+
+HI:
+1. Class-wise fee structures banayein.
+2. Class + academic year ke liye fees auto-generate karein.
+3. Fee list me total, paid, due check karein.
+4. Installment-wise payment entry karein.
+5. Payment date aur mode ke saath save karein.
+6. Paid/due auto update hoga.
+7. Receipts download karein:
+   - Full fee receipt
+   - Har payment ka alag receipt
+
+==================================================
+6. ATTENDANCE FLOW
+==================================================
+EN:
+1. Mark daily attendance (manual/biometric/mobile methods if enabled).
+2. Verify absent/late reports.
+3. Use class/section filters for accuracy.
+4. Keep attendance synced before exam/results.
+
+HI:
+1. Daily attendance mark karein (manual/biometric/mobile methods if enabled).
+2. Absent/late reports verify karein.
+3. Class/section filters use karein.
+4. Exam/results se pehle attendance data sync rakhein.
+
+==================================================
+7. COMMUNICATION FLOW
+==================================================
+EN:
+1. Publish notifications.
+2. Add holidays and leave policies.
+3. Process leave approvals/rejections.
+4. Manage calendar events (academic + admin events).
+
+HI:
+1. Notifications publish karein.
+2. Holidays aur leave policy update karein.
+3. Leave approve/reject karein.
+4. Calendar events manage karein.
+
+==================================================
+8. EXAM FLOW (CREATE TO RESULT)
+==================================================
+EN:
+1. Create exam (class/date/settings).
+2. Use Exam Builder:
+   - Duration
+   - Negative marking
+   - Question sets
+3. Add/import questions.
+4. Optional: attach paper files.
+5. Student attempts assigned set.
+6. Autosave/submit.
+7. Evaluate and publish result.
+8. Result available in admin + student portal.
+
+HI:
+1. Exam create karein (class/date/settings).
+2. Exam Builder me:
+   - Duration
+   - Negative marking
+   - Question sets
+3. Questions add/import karein.
+4. Optional: paper file attach karein.
+5. Student assigned set attempt kare.
+6. Autosave/submit kare.
+7. Result evaluate aur publish karein.
+8. Result admin aur student portal dono me dikhega.
+
+==================================================
+9. CERTIFICATE FLOW
+==================================================
+EN:
+1. Upload school stamp and signature.
+2. Select student.
+3. Generate certificate type:
+   - TC
+   - Bonafide
+   - Character
+4. Download PDF with branding.
+
+HI:
+1. School stamp aur signature upload karein.
+2. Student select karein.
+3. Certificate type generate karein:
+   - TC
+   - Bonafide
+   - Character
+4. Branding ke saath PDF download karein.
+
+==================================================
+10. STUDENT PORTAL FLOW
+==================================================
+EN:
+Student login -> Dashboard -> Fees -> Exams -> Results -> Attendance -> Calendar -> Books -> Profile.
+
+HI:
+Student login -> Dashboard -> Fees -> Exams -> Results -> Attendance -> Calendar -> Books -> Profile.
+
+==================================================
+11. REPORTING FLOW
+==================================================
+EN:
+1. Export module data in PDF/Excel.
+2. Review dashboard trends.
+3. Verify fee recovery and pending dues.
+4. Use audit logs for traceability.
+
+HI:
+1. Module data PDF/Excel me export karein.
+2. Dashboard trends review karein.
+3. Fee recovery aur pending dues verify karein.
+4. Traceability ke liye audit logs dekhein.
+
+==================================================
+12. DAILY SOP FLOW
+==================================================
+EN:
+1. Attendance
+2. Fees and receipts
+3. Notices and leave actions
+4. Calendar updates
+5. Data correction (if any)
+
+HI:
+1. Attendance
+2. Fees aur receipts
+3. Notices aur leave actions
+4. Calendar updates
+5. Data correction (agar zarurat ho)
+
+==================================================
+13. MONTH-END FLOW
+==================================================
+EN:
+1. Fees reconciliation.
+2. Due follow-up list.
+3. Exam schedule freeze.
+4. Result/certificate cycle.
+5. Backup DB + storage.
+6. Security and audit review.
+
+HI:
+1. Fees reconciliation.
+2. Due follow-up list.
+3. Exam schedule freeze.
+4. Result/certificate cycle.
+5. DB + storage backup.
+6. Security aur audit review.
+
+==================================================
+14. GO-LIVE FLOW
+==================================================
+EN:
+1. APP_ENV=production
+2. APP_DEBUG=false
+3. Secure DB + mail config
+4. Storage link verified
+5. Backups enabled
+6. Final UAT sign-off
+
+HI:
+1. APP_ENV=production
+2. APP_DEBUG=false
+3. Secure DB + mail config
+4. Storage link verify karein
+5. Backups enable karein
+6. Final UAT sign-off lein
+
+==================================================
+15. SUCCESS FLOW SUMMARY (ONE LINE)
+==================================================
+EN:
+Setup -> Master Data -> Students -> Fees -> Attendance -> Communication -> Exams -> Results -> Certificates -> Reports -> SOP -> Go-Live.
+
+HI:
+Setup -> Master Data -> Students -> Fees -> Attendance -> Communication -> Exams -> Results -> Certificates -> Reports -> SOP -> Go-Live.
+
+END OF PROJECT PROPER FLOW

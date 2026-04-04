@@ -1,0 +1,66 @@
+MEERAHR SCHOOL ERP - UAT ONE PAGE PRINTABLE (A4)
+Date: ____________________   Build: ____________________   Env: ____________________
+Tester: ____________________   Approved By: ____________________
+
+=================================================================
+A) CORE APP HEALTH
+=================================================================
+[ ] Login page opens
+[ ] Dashboard opens
+[ ] No 500/server errors observed
+
+=================================================================
+B) ROLE ACCESS CHECK
+=================================================================
+SUPER ADMIN
+[ ] Access Matrix opens
+[ ] Password Reset Utility opens
+
+ADMIN
+[ ] Password Reset Utility opens
+[ ] Access Matrix blocked
+
+HR
+[ ] Attendance menu visible
+[ ] Attendance page opens
+
+TEACHER
+[ ] Study Materials visible
+[ ] Exam Papers visible
+[ ] iCards visible
+
+STUDENT
+[ ] Student dashboard opens
+[ ] Own password change works
+
+=================================================================
+C) ATTENDANCE IMPORT
+=================================================================
+[ ] Upload valid file successful
+[ ] Success/Warning/Error toast appears correctly
+[ ] Failed rows button shown when needed
+[ ] Failed rows CSV downloads
+
+=================================================================
+D) PASSWORD FLOWS
+=================================================================
+[ ] Self password change works (staff/admin)
+[ ] Student forgot reset flow works
+[ ] Admin/Super Admin can reset other users
+
+=================================================================
+E) FINAL DECISION
+=================================================================
+Critical defects found: [ ] NO   [ ] YES
+If YES, count: ______
+
+Go-Live Decision:
+[ ] APPROVED
+[ ] HOLD
+
+Signature (Tester): ____________________
+Signature (Approver): ____________________
+
+Notes:
+_______________________________________________________________
+_______________________________________________________________
