@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install \
         gd zip pdo pdo_mysql mbstring exif pcntl bcmath
 
+# Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /app
@@ -17,14 +18,14 @@ COPY . .
 
 RUN chmod -R 777 storage bootstrap/cache
 
+# PHP dependencies
 RUN composer install --no-dev --optimize-autoloader --no-scripts --ignore-platform-reqs
 
-# ✅ Vite fix
+# ✅ Vite build (MOST IMPORTANT)
 RUN npm install
 RUN npm run build
 
-# ✅ Safe Laravel command
-RUN php artisan view:clear
+# ❌ REMOVE ALL ARTISAN COMMANDS HERE
 
 EXPOSE 10000
 
