@@ -1,9 +1,10 @@
 FROM php:8.2-cli
 
-# System dependencies
+# System dependencies + GD support
 RUN apt-get update && apt-get install -y \
-    unzip git curl libzip-dev zip \
-    && docker-php-ext-install zip
+    unzip git curl libzip-dev zip libpng-dev libjpeg-dev libfreetype6-dev \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd zip
 
 # Composer install
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
