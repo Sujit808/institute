@@ -1,13 +1,21 @@
 FROM php:8.2-cli
 
+# System dependencies
+RUN apt-get update && apt-get install -y \
+    unzip git curl libzip-dev zip \
+    && docker-php-ext-install zip
+
+# Composer install
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
 WORKDIR /app
 
 COPY . .
 
-RUN apt-get update && apt-get install -y unzip git curl \
-    && curl -sS https://getcomposer.org/installer | php \
-    && mv composer.phar /usr/local/bin/composer
+# Permissions fix
+RUN chmod -R 777 storage bootstrap/cache
 
+# Install Laravel dependencies
 RUN composer install --no-dev --optimize-autoloader
 
 EXPOSE 10000
