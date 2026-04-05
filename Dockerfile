@@ -1,10 +1,11 @@
 FROM php:8.2-cli
 
-# Install dependencies
+# Install dependencies + Node.js/npm ✅
 RUN apt-get update && apt-get install -y \
     unzip git curl libzip-dev zip \
     libpng-dev libjpeg-dev libfreetype6-dev \
     libonig-dev libxml2-dev \
+    nodejs npm \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install \
         gd zip pdo pdo_mysql mbstring exif pcntl bcmath
@@ -19,8 +20,17 @@ COPY . .
 # Permissions
 RUN chmod -R 777 storage bootstrap/cache
 
-# Install dependencies (NO Laravel scripts)
+# Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader --no-scripts --ignore-platform-reqs
+
+# 🔥 IMPORTANT: Install Node modules + build Vite
+RUN npm install
+RUN npm run build
+
+# Laravel cache optimize
+RUN php artisan config:cache
+RUN php artisan route:cache
+RUN php artisan view:clear
 
 EXPOSE 10000
 
