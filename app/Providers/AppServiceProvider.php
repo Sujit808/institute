@@ -30,9 +30,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if ((bool) config('security.force_https', false) && ! app()->environment('local')) {
-            URL::forceScheme('https');
-        }
+        // if ((bool) config('security.force_https', false) && ! app()->environment('local')) {
+        //     URL::forceScheme('https');
+        // }
+
+        if (!app()->environment('local')) {
+        URL::forceScheme('https');
+    }
+
+        
 
         View::composer('layouts.app', function ($view): void {
             $licenseWarning = null;
