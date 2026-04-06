@@ -9,12 +9,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
     use HasFactory, Notifiable, SoftDeletes;
 
+    // Fillable attributes
     protected $fillable = [
         'name',
         'email',
@@ -30,46 +30,25 @@ class User extends Authenticatable
         'deleted_by',
     ];
 
+    // Hidden attributes for arrays/json
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
+    // Attribute casting
     protected function casts(): array
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            'password' => 'hashed',  // Laravel 12+ will auto-bcrypt
             'permissions' => 'array',
             'must_change_password' => 'boolean',
             'active' => 'boolean',
         ];
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | 🔥 AUTO SUPER ADMIN
-    |--------------------------------------------------------------------------
-    */
-    public static function ensureSuperAdmin()
-    {
-        return self::firstOrCreate(
-            ['email' => 'superadmin@school.com'],
-            [
-                'name' => 'Super Admin',
-                'password' => Hash::make('Admin@123'),
-                'role' => 'super_admin',
-                'active' => true,
-                'must_change_password' => false,
-            ]
-        );
-    }
-
-    /*
-    |--------------------------------------------------------------------------
-    | Relationships
-    |--------------------------------------------------------------------------
-    */
+    // Relationships
     public function staff(): BelongsTo
     {
         return $this->belongsTo(Staff::class);
@@ -83,15 +62,11 @@ class User extends Authenticatable
     public function branches(): BelongsToMany
     {
         return $this->belongsToMany(Branch::class)
-            ->withPivot('is_primary')
-            ->withTimestamps();
+                    ->withPivot('is_primary')
+                    ->withTimestamps();
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | Roles
-    |--------------------------------------------------------------------------
-    */
+    // Role check helpers
     public function isSuperAdmin(): bool
     {
         return $this->role === 'super_admin';
@@ -117,32 +92,31 @@ class User extends Authenticatable
         return $this->role === 'student';
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | Permissions
-    |--------------------------------------------------------------------------
-    */
+    // Module access
     public function canAccessModule(string $module): bool
     {
         $checkModule = SchoolModuleRegistry::normalizePermissionKey($module);
         $license = LicenseConfig::current();
 
+        // Super admin has all access
+        if ($this->isSuperAdmin()) {
+            return true;
+        }
+
+        // Audit logs only for super admin
         if ($module === 'audit-logs') {
             return $this->isSuperAdmin();
         }
 
+        // License check
         if ($license && ! $license->moduleEnabled($checkModule)) {
             return false;
-        }
-
-        if ($this->isSuperAdmin()) {
-            return true;
         }
 
         $permissions = $this->permissions ?? [];
 
         if ($this->isAdmin() || $this->isHr()) {
-            return $permissions === [] || in_array($checkModule, $permissions, true);
+            return empty($permissions) || in_array($checkModule, $permissions, true);
         }
 
         if ($this->isTeacher()) {
@@ -157,5 +131,21 @@ class User extends Authenticatable
         }
 
         return false;
+    }
+
+    // Optional: set default permissions for Super Admin
+    public static function booted()
+    {
+        static::creating(function ($user) {
+            if ($user->role === 'super_admin' && empty($user->permissions)) {
+                $user->permissions = [
+                    "payroll","students","admission-leads","staff","classes","sections",
+                    "subjects","exams","exam-questions","exam-papers","results",
+                    "study-materials","attendance","biometric-devices","fees","timetable",
+                    "notifications","holidays","leaves","calendar","icards",
+                    "quotations","audit-logs"
+                ];
+            }
+        });
     }
 }
