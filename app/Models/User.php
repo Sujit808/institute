@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -45,6 +46,30 @@ class User extends Authenticatable
         ];
     }
 
+    /*
+    |--------------------------------------------------------------------------
+    | 🔥 AUTO SUPER ADMIN
+    |--------------------------------------------------------------------------
+    */
+    public static function ensureSuperAdmin()
+    {
+        return self::firstOrCreate(
+            ['email' => 'superadmin@school.com'],
+            [
+                'name' => 'Super Admin',
+                'password' => Hash::make('Admin@123'),
+                'role' => 'super_admin',
+                'active' => true,
+                'must_change_password' => false,
+            ]
+        );
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Relationships
+    |--------------------------------------------------------------------------
+    */
     public function staff(): BelongsTo
     {
         return $this->belongsTo(Staff::class);
@@ -62,6 +87,11 @@ class User extends Authenticatable
             ->withTimestamps();
     }
 
+    /*
+    |--------------------------------------------------------------------------
+    | Roles
+    |--------------------------------------------------------------------------
+    */
     public function isSuperAdmin(): bool
     {
         return $this->role === 'super_admin';
@@ -87,6 +117,11 @@ class User extends Authenticatable
         return $this->role === 'student';
     }
 
+    /*
+    |--------------------------------------------------------------------------
+    | Permissions
+    |--------------------------------------------------------------------------
+    */
     public function canAccessModule(string $module): bool
     {
         $checkModule = SchoolModuleRegistry::normalizePermissionKey($module);
