@@ -41,7 +41,16 @@ use Illuminate\Support\Facades\Route;
 //     }
 // });
 
+use Illuminate\Support\Facades\DB;
 
+Route::get('/test-db', function () {
+    try {
+        DB::connection()->getPdo();
+        return "✅ Database Connected Successfully";
+    } catch (\Exception $e) {
+        return "❌ DB Error: " . $e->getMessage();
+    }
+});
 
 
 
