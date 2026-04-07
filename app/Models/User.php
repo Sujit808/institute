@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -98,17 +99,14 @@ class User extends Authenticatable
         $checkModule = SchoolModuleRegistry::normalizePermissionKey($module);
         $license = LicenseConfig::current();
 
-        // Super admin has all access
         if ($this->isSuperAdmin()) {
             return true;
         }
 
-        // Audit logs only for super admin
         if ($module === 'audit-logs') {
             return $this->isSuperAdmin();
         }
 
-        // License check
         if ($license && ! $license->moduleEnabled($checkModule)) {
             return false;
         }
@@ -133,9 +131,10 @@ class User extends Authenticatable
         return false;
     }
 
-    // Optional: set default permissions for Super Admin
-    public static function booted()
+    // Booted method for auto Super Admin creation
+    protected static function booted()
     {
+        // Set default permissions when creating Super Admin
         static::creating(function ($user) {
             if ($user->role === 'super_admin' && empty($user->permissions)) {
                 $user->permissions = [
@@ -145,6 +144,21 @@ class User extends Authenticatable
                     "notifications","holidays","leaves","calendar","icards",
                     "quotations","audit-logs"
                 ];
+            }
+        });
+
+        // Auto-create Super Admin if not exists
+        static::booted(function () {
+            $superadminEmail = 'superadmin@school.com';
+
+            if (! User::where('email', $superadminEmail)->exists()) {
+                User::create([
+                    'name' => 'Super Admin',
+                    'email' => $superadminEmail,
+                    'password' => 'SuperAdmin@123', // Laravel 12+ auto-hashes this
+                    'role' => 'super_admin',
+                    'active' => true,
+                ]);
             }
         });
     }
