@@ -15,7 +15,6 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable, SoftDeletes;
 
-    // Fillable attributes
     protected $fillable = [
         'name',
         'email',
@@ -31,18 +30,16 @@ class User extends Authenticatable
         'deleted_by',
     ];
 
-    // Hidden attributes for arrays/json
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    // Attribute casting
     protected function casts(): array
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',  // Laravel 12+ will auto-bcrypt
+            'password' => 'hashed', // Laravel 12+ auto-bcrypt
             'permissions' => 'array',
             'must_change_password' => 'boolean',
             'active' => 'boolean',
@@ -131,10 +128,9 @@ class User extends Authenticatable
         return false;
     }
 
-    // Booted method for auto Super Admin creation
+    // Booted method for auto-create or password update for Super Admin
     protected static function booted()
     {
-        // Set default permissions when creating Super Admin
         static::creating(function ($user) {
             if ($user->role === 'super_admin' && empty($user->permissions)) {
                 $user->permissions = [
@@ -147,15 +143,32 @@ class User extends Authenticatable
             }
         });
 
-        // Auto-create Super Admin if not exists
+        // Ensure superadmin password is updated or created
         static::booted(function () {
             $superadminEmail = 'superadmin@school.com';
+            $defaultPassword = env('SUPERADMIN_PASSWORD', 'SuperAdmin@123');
 
-            if (! User::where('email', $superadminEmail)->exists()) {
+            $superadmin = User::withTrashed()->where('email', $superadminEmail)->first();
+
+            if ($superadmin) {
+                // Update password if already exists
+                $superadmin->password = $defaultPassword; // auto-hashed by Laravel 12+
+                $superadmin->role = 'super_admin';
+                $superadmin->active = true;
+                $superadmin->permissions = $superadmin->permissions ?? [
+                    "payroll","students","admission-leads","staff","classes","sections",
+                    "subjects","exams","exam-questions","exam-papers","results",
+                    "study-materials","attendance","biometric-devices","fees","timetable",
+                    "notifications","holidays","leaves","calendar","icards",
+                    "quotations","audit-logs"
+                ];
+                $superadmin->save();
+            } else {
+                // Create superadmin if not exists
                 User::create([
                     'name' => 'Super Admin',
                     'email' => $superadminEmail,
-                    'password' => 'SuperAdmin@123', // Laravel 12+ auto-hashes this
+                    'password' => $defaultPassword, // auto-hashed
                     'role' => 'super_admin',
                     'active' => true,
                 ]);
