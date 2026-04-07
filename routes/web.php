@@ -52,7 +52,7 @@ Route::get('/fix-login', function () {
 //     }
 // });
 
-use Illuminate\Support\Facades\DB;
+
 
 Route::get('/test-db', function () {
     try {
