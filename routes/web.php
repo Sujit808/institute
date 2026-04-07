@@ -26,20 +26,20 @@ use Illuminate\Support\Facades\Route;
 
  
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Artisan;
+// use Illuminate\Support\Facades\Route;
+// use Illuminate\Support\Facades\Artisan;
 
-// ===== TEMPORARY ROUTE FOR SUPERADMIN SEEDER =====
-Route::get('/run-superadmin-seeder', function () {
-    try {
-        Artisan::call('db:seed', [
-            '--class' => 'SuperAdminSeeder'
-        ]);
-        return '✅ SuperAdmin Seeder Run Complete';
-    } catch (\Exception $e) {
-        return '❌ Error: ' . $e->getMessage();
-    }
-});
+// // ===== TEMPORARY ROUTE FOR SUPERADMIN SEEDER =====
+// Route::get('/run-superadmin-seeder', function () {
+//     try {
+//         Artisan::call('db:seed', [
+//             '--class' => 'SuperAdminSeeder'
+//         ]);
+//         return '✅ SuperAdmin Seeder Run Complete';
+//     } catch (\Exception $e) {
+//         return '❌ Error: ' . $e->getMessage();
+//     }
+// });
 
 
 
