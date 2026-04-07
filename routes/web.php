@@ -23,7 +23,18 @@ use Illuminate\Support\Facades\Route;
 
 
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
+Route::get('/fix-login', function () {
+    DB::table('users')
+        ->where('email', 'superadmin@school.com')
+        ->update([
+            'password' => Hash::make('SuperAdmin@123')
+        ]);
+
+    return '✅ Password Fixed';
+});
  
 
 // use Illuminate\Support\Facades\Route;
